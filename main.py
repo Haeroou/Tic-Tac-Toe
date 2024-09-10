@@ -180,11 +180,10 @@ class Tic_Tac_Toe():
         # small_board 처리
         # Three in a row 3개가 연속되었는지 (가로 세로)
         for i in range(3):
-            for j in range(9):
-                if self.small_board_status[i][j] == self.small_board_status[i][j+1] == self.small_board_status[i][j+2] == player:
-                    return True
-                if self.small_board_status[j][i] == self.small_board_status[j+1][i] == self.small_board_status[j+2][i] == player:
-                    return True
+            if self.small_board_status[i][0] == self.small_board_status[i][1] == self.small_board_status[i][2] == player:
+                return True
+            if self.small_board_status[0][i] == self.small_board_status[1][i] == self.small_board_status[2][i] == player:
+                return True
 
         # Diagonals (대각선)
         if self.small_board_status[0][0] == self.small_board_status[1][1] == self.small_board_status[2][2] == player:
